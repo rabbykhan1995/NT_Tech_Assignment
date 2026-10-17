@@ -195,11 +195,3 @@ bun run build
 
 Before submitting, verify that the database connection, authentication, API endpoints, frontend build, and core purchase and sales workflows work correctly.
 
-## Demo Credentials
-
-For evaluation, use a dedicated demo account if access to the application is required.
-
-Do not publish production credentials or personal account passwords in this repository. Share temporary demo credentials separately and only when necessary.
-
-
-
