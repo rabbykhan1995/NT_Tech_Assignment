@@ -1,0 +1,102 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# ==========================================
+# 1. Custom Unwanted Folders & AI Configs
+# ==========================================
+.opencode/
+*.opencode
+
+
+# ==========================================
+# 2. Production & Build Outputs (React, Next, Bun, TS)
+# ==========================================
+dist/
+**/dist/
+build/
+**/build/
+out/
+**/out/
+
+# Next.js
+.next/
+**/.next/
+dokanpat_nextjs
+shishir_backend
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# ==========================================
+# 3. Dependencies & Package Managers
+# ==========================================
+node_modules/
+**/node_modules/
+.bun/
+**/.bun/
+package-lock.json
+**/package-lock.json
+
+.pnp
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
+
+# ==========================================
+# 4. Environment & Secret Files (CRITICAL)
+# ==========================================
+.env
+.env*
+!.env.example
+*.key
+
+# ==========================================
+# 5. Database & OS / Editor Temp Files
+# ==========================================
+**/pgdata/
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+coverage/
+.vercel/
+
+# ==========================================
+# 6. React Native & Android
+# ==========================================
+/android/app/build
+/android/build
+/android/.gradle
+/android/captures
+/android/local.properties
+
+*.iml
+*.iws
+*.ipr
+.gradle/
+
+*.keystore
+*.jks
+*.pepk
+
+/android/fastlane/report.xml
+/android/fastlane/Preview.html
+
+*.jsbundle
+android/app/src/main/assets/index.android.bundle
+.metro-health-check*
+# AGENTS.md files (all locations)
+AGENTS.md
+**/AGENTS.md
+**/Prompt.md
+**/SKILL.md

@@ -1,0 +1,479 @@
+@import "tailwindcss";
+
+:root {
+  /* Light Mode */
+  --primary-bg: 228 250 240;
+  --primary-text: 24 24 24;
+  --primary-border: 229 231 235;
+  --primary-hover-bg: 243 244 246;
+  --primary-accent: 46 46 46;
+  --danger: 220 38 38;
+  --success: 34 197 94;
+  --info: 59 130 246;
+   --global-button-bg: 249 115 22;
+   --global-button-hover: 234 88 12;
+}
+
+/* Dark Mode */
+html.dark {
+  --primary-bg: 26 26 26;
+  --primary-text: 240 240 230;
+  --primary-border: 75 85 99;
+  --primary-hover-bg: 55 65 81;
+  --primary-accent: 255 255 255;
+  --danger: 220 38 38;
+  --success: 34 197 94;
+  --info: 59 130 246;
+}
+
+/* React Select theme variables (used by src/utils/reactSelectStyles.ts) */
+:root {
+  --rs-text: #111827;
+  --rs-placeholder: #6b7280;
+  --rs-control-bg: #ffffff;
+  --rs-border: #d1d5db;
+  --rs-menu-bg: #ffffff;
+  --rs-option-focused-bg: #e5e7eb;
+
+  --rs-sm-control-bg: #ffffff;
+  --rs-sm-menu-bg: #ffffff;
+  --rs-sm-option-bg: #ffffff;
+  --rs-sm-option-focused-bg: #f3f4f6;
+  --rs-sm-multivalue-bg: #e5e7eb;
+  --rs-sm-mvremove-hover-bg: #fca5a5;
+}
+
+html.dark {
+  --rs-text: #ffffff;
+  --rs-placeholder: #9ca3af;
+  --rs-control-bg: #343a3f;
+  --rs-border: #374151;
+  --rs-menu-bg: #343a3f;
+  --rs-option-focused-bg: #374151;
+
+  --rs-sm-control-bg: #111827;
+  --rs-sm-menu-bg: #374151;
+  --rs-sm-option-bg: #374151;
+  --rs-sm-option-focused-bg: #4b5563;
+  --rs-sm-multivalue-bg: #4b5563;
+  --rs-sm-mvremove-hover-bg: #ef4444;
+}
+
+/* Chrome, Safari, Edge */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+@variant dark (&:where(.dark, .dark *));
+
+
+@layer components {
+  .global_container {
+    @apply lg:p-6 p-2 bg-white/20 dark:bg-gray-900/20 rounded-2xl border border-white/30 dark:border-zinc-700/30 shadow-lg mb-2;
+  }
+
+  /* backdrop-blur-sm */
+  .global_sub_container {
+    @apply bg-white/20 dark:bg-zinc-900/20 shadow-md rounded-2xl p-2 lg:p-6 mb-8 transition-all duration-300 ring-2 ring-blue-500;
+  }
+
+  /* added by Saiful  */
+  .global_heading {
+    @apply text-xl font-semibold mb-3;
+  }
+
+  .global_dropdown {
+    @apply px-3 py-2 w-full border border-gray-300 dark:border-gray-600 rounded-2xl focus:outline-none focus:ring-2 focus:ring-blue-500 dark:bg-gray-700 dark:text-white text-sm;
+  }
+
+  .global_input {
+    @apply w-full border border-gray-400 dark:border-gray-600 rounded-md px-4 py-1 focus:ring-2 focus:ring-[rgb(var(--global-button-bg))] outline-none;
+  }
+
+  .global_button {
+    @apply uppercase text-[rgb(var(--primary-text))] bg-[rgb(var(--global-button-bg))] hover:bg-[rgb(var(--global-button-hover))] rounded-sm px-2 py-1 font-[500] shadow-md transition text-nowrap h-fit w-fit;
+  }
+
+  .global_button_red {
+    @apply border-1 hover:ring-2 capitalize text-red-500 font-semibold py-[2px] px-2 py-1 rounded-sm shadow-md transition text-nowrap h-fit w-fit;
+  }
+
+  .global_edit {
+    @apply capitalize text-zinc-500 bg-amber-400 dark:bg-amber-600 dark:text-white font-[500] py-[2px] px-4 rounded-sm shadow-md transition text-nowrap h-fit w-fit;
+  }
+
+  .global_list_item {
+    @apply border border-white/30 dark:border-gray-700/50 pl-3 pr-[6px] py-1 text-sm rounded-2xl flex justify-between items-center bg-white/40 dark:bg-gray-800/40 backdrop-blur-md shadow-sm hover:shadow-md transition-shadow;
+  }
+}
+
+/* Input er jonno */
+.large_input {
+  @apply rounded-2xl border border-gray-300 px-3 py-2 focus:outline-none focus:ring-3 backdrop-blur-2xl focus:ring-blue-500 w-full;
+}
+
+.small_input {
+  @apply rounded-2xl border border-gray-300 px-2 py-[3px] text-sm text-[#646464] dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500;
+}
+
+/* button er jonno */
+.large_button {
+  @apply flex items-center justify-center gap-5 rounded-2xl bg-green-500 text-white py-2 px-5 hover:bg-green-400 capitalize font-[500];
+}
+
+.small_button {
+  @apply flex items-center gap-5 rounded-2xl bg-orange-500 text-white py-1 px-5 hover:bg-orange-400 text-sm font-[500] capitalize w-fit;
+}
+
+.global_th {
+  @apply px-1 py-2 lg:py-3 bg-[#343A3F]  text-xs font-[600] text-[#ccc] uppercase tracking-wider border border-gray-300 dark:border-gray-700;
+}
+
+.global_thead {
+  @apply bg-gradient-to-r from-blue-500 to-indigo-800 dark:from-[#040036] dark:to-[#010f16];
+}
+
+.global_tbody {
+  @apply bg-white dark:bg-gray-800 divide-gray-200 dark:divide-green-700;
+}
+
+.global_table {
+  @apply min-w-full divide-y divide-gray-200 dark:divide-gray-700 rounded-lg shadow-md;
+}
+
+.global_tr {
+  @apply hover:bg-gray-50 transition-colors duration-150 odd:bg-white even:bg-[#F5F5F5] dark:odd:bg-[#222222] dark:even:bg-[#2c2c2c];
+}
+
+.global_td {
+  @apply px-1 py-1 lg:py-2 text-sm font-medium whitespace-normal border border-gray-300 dark:border-gray-700;
+}
+
+.global_print_th {
+  @apply bg-[#006D2B] text-white px-1 py-2 text-xs font-medium uppercase tracking-wider;
+}
+
+/* Dark mode css for date picker */
+/* Dark mode overrides */
+.dark .react-datepicker {
+  background-color: #1f2937;
+  /* bg-gray-800 */
+  border-color: #374151;
+  /* border-gray-700 */
+  color: #f9fafb;
+  /* text-gray-100 */
+}
+
+.react-datepicker-wrapper {
+  width: 100% !important;
+}
+
+.react-datepicker__input-container {
+  width: 100% !important;
+}
+
+.react-datepicker__input-container input {
+  width: 100% !important;
+}
+
+.dark .react-datepicker__day {
+  color: #d1d5db;
+  /* text-gray-300 */
+}
+
+.dark .react-datepicker__day:hover {
+  background-color: #374151;
+  /* hover:bg-gray-700 */
+  color: #180f0f;
+}
+
+.dark .react-datepicker__day--selected,
+.dark .react-datepicker__day--keyboard-selected {
+  background-color: #2563eb;
+  /* bg-blue-600 */
+  color: white;
+}
+
+.dark .react-datepicker__header {
+  background-color: #111827;
+  /* bg-gray-900 */
+  border-bottom-color: #374151;
+}
+
+.dark .react-datepicker__current-month,
+.dark .react-datepicker__day-name {
+  color: #f3f4f6;
+  /* text-gray-100 */
+}
+
+/* ===== Slim Scrollbar ===== */
+
+/* Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f3f4f6; /* light gray */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ea580c; /* orange-600 */
+  border-radius: 10px;
+  transition: background 0.2s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #c2410c; /* orange-700 */
+}
+
+/* ===== Dark Mode ===== */
+
+.dark ::-webkit-scrollbar-track {
+  background: #27272a; /* zinc-800 */
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #ea580c; /* orange-600 */
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #fb923c; /* orange-400 */
+}
+
+/* ===== Firefox ===== */
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #ea580c #f3f4f6;
+}
+
+.dark * {
+  scrollbar-color: #ea580c #27272a;
+}
+
+/* Smooth transitions for theme changes */
+*,
+*::before,
+*::after {
+  transition-property: color, background-color, border-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 20ms;
+}
+
+/* Custom scrollbar for sidebar */
+.sidebar-scroll::-webkit-scrollbar {
+  width: 3px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 3px;
+}
+
+.dark .sidebar-scroll::-webkit-scrollbar-thumb {
+  background: #6b7280;
+}
+
+/* For Print Varias content */
+@media print {
+  @page {
+    margin: 0;
+    size: auto;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  #no-print {
+    display: none !important;
+  }
+}
+
+
+/* ===== MDX Editor Fixes ===== */
+
+/* Restore heading sizing (Tailwind preflight resets font-size/font-weight to inherit) */
+.mdxeditor h1 { font-size: 2em; font-weight: 700; margin: 0.67em 0; }
+.mdxeditor h2 { font-size: 1.5em; font-weight: 700; margin: 0.83em 0; }
+.mdxeditor h3 { font-size: 1.17em; font-weight: 700; margin: 1em 0; }
+.mdxeditor h4 { font-size: 1em; font-weight: 700; margin: 1.33em 0; }
+.mdxeditor h5 { font-size: 0.83em; font-weight: 700; margin: 1.67em 0; }
+.mdxeditor h6 { font-size: 0.67em; font-weight: 700; margin: 2.33em 0; }
+
+/* Restore list markers (Tailwind preflight sets list-style: none on ol, ul, menu) */
+.mdxeditor ul { list-style-type: disc; margin: 1em 0; padding-left: 2em; }
+.mdxeditor ol { list-style-type: decimal; margin: 1em 0; padding-left: 2em; }
+.mdxeditor li { margin: 0.25em 0; }
+
+/* ===== MDX Editor Dark Mode ===== */
+
+html.dark .mdxeditor [class*="editorRoot"],
+html.dark .mdxeditor-root > div > div {
+  --basePageBg: #1e1e2e;
+  --baseBase: var(--slate-1);
+  --baseBgSubtle: var(--slate-2);
+  --baseBg: var(--slate-3);
+  --baseBgHover: var(--slate-4);
+  --baseBgActive: var(--slate-5);
+  --baseLine: var(--slate-6);
+  --baseBorder: var(--slate-7);
+  --baseBorderHover: var(--slate-8);
+  --baseSolid: var(--slate-9);
+  --baseSolidHover: var(--slate-10);
+  --baseText: var(--slate-11);
+  --baseTextContrast: var(--slate-12);
+  --accentBase: var(--blue-1);
+  --accentBgSubtle: var(--blue-2);
+  --accentBg: var(--blue-3);
+  --accentBgHover: var(--blue-4);
+  --accentBgActive: var(--blue-5);
+  --accentLine: var(--blue-6);
+  --accentBorder: var(--blue-7);
+  --accentBorderHover: var(--blue-8);
+  --accentSolid: var(--blue-9);
+  --accentSolidHover: var(--blue-10);
+  --accentText: var(--blue-11);
+  --accentTextContrast: var(--blue-12);
+}
+
+html.dark .mdxeditor .cm-content {
+  color: var(--baseTextContrast);
+}
+
+html.dark [data-radix-popper-content-wrapper] {
+  background-color: var(--basePageBg, #1e1e2e);
+  color: var(--baseText, #b0b4ba);
+}
+
+html.dark [role="listbox"],
+html.dark [role="menu"],
+html.dark [data-radix-dropdown-menu-content],
+html.dark [data-radix-select-viewport] {
+  background-color: var(--basePageBg, #1e1e2e);
+  color: var(--baseText, #b0b4ba);
+  border-color: var(--baseBorder, #43484e);
+}
+
+html.dark [role="option"],
+html.dark [role="menuitem"],
+html.dark [data-radix-select-item] {
+  color: var(--baseText, #b0b4ba);
+}
+
+html.dark [role="option"]:hover,
+html.dark [role="menuitem"]:hover,
+html.dark [data-radix-select-item]:hover,
+html.dark [role="option"][data-highlighted],
+html.dark [role="menuitem"][data-highlighted],
+html.dark [data-radix-select-item][data-highlighted] {
+  background-color: var(--baseBgHover, #272a2d);
+  color: var(--baseTextContrast, #edeef0);
+}
+
+html.dark .mdxeditor .mdxeditor-toolbar {
+  background-color: var(--baseBg, #212225);
+}
+
+html.dark .mdxeditor .mdxeditor-toolbar button:hover {
+  background-color: var(--baseBgHover, #272a2d);
+}
+
+html.dark .mdxeditor .mdxeditor-toolbar button[data-state="on"] {
+  background-color: var(--baseBgActive, #2e3135);
+  color: var(--accentText, #70b8ff);
+}
+
+@media print {
+
+  /* ---------------------------
+     GLOBAL PRINT RESET
+  ---------------------------- */
+  * {
+    overflow: visible !important;
+  }
+
+  body {
+    margin: 0;
+  }
+
+  /* ---------------------------
+     CONTAINER FIX
+  ---------------------------- */
+  .h-\[55vh\] {
+    height: auto !important;
+  }
+
+  /* ---------------------------
+     TABLE PAGE BREAK CONTROL
+  ---------------------------- */
+
+  table {
+    page-break-inside: auto;
+    page-break-after: auto;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tfoot {
+    display: table-footer-group;
+  }
+
+  tr {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+    page-break-after: auto;
+  }
+
+  /* ---------------------------
+     GROUPED ROWS (IF USED)
+  ---------------------------- */
+  .print-group {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  .print-group tr {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* ---------------------------
+     BLANK SPACE (KEEP IN PRINT)
+  ---------------------------- */
+  /* Default: blank space auto */
+  .print-blank-space {
+    height: auto !important;
+    min-height: 0;
+    /* default 0, যদি product full page হয় */
+  }
+
+  /* Only when product is few, force minimum blank space */
+  .print-blank-space.short {
+    min-height: 120px;
+    /* adjust as needed */
+  }
+
+  /* ---------------------------
+     FOOTER FIX
+  ---------------------------- */
+  .print-footer {
+    position: static !important;
+  }
+}
